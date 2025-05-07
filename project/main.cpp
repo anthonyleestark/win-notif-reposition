@@ -19,15 +19,15 @@ using namespace std;
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow)
 {
     // New Y-position 
-    int nNewPosY = 0;
+    int nNewYPos = 0;
 
     // Get position from command line
     if (szCmdLine != NULL) {
-        nNewPosY = atoi(szCmdLine);
+        nNewYPos = atoi(szCmdLine);
 	}
     // Otherwise, use default
     else {
-        nNewPosY = DEFAULT_Y_POS;
+        nNewYPos = DEFAULT_Y_POS;
 	}
 
     while (true) {
@@ -45,7 +45,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int i
         
         // Reposition notification window
         int nNewXPos = GetSystemMetrics(SM_CXSCREEN) - rcNotifyRect.right;
-        SetWindowPos(hNotifyWnd, NULL, nNewXPos, nNewPosY, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_SHOWWINDOW);
+        SetWindowPos(hNotifyWnd, NULL, nNewXPos, nNewYPos, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_SHOWWINDOW);
 
         // Wait for a blink
         Sleep(DEFAULT_WAIT_TIME);
